@@ -8,19 +8,6 @@ body {
   margin: 0;
 }
 
-h1 {
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  margin: 0;
-  font-family: HUGEAvantGardeBold;
-  font-size: 90px;
-  text-align: center;
-}
-
 ul {
   list-style: none;
   padding: 0;
@@ -32,6 +19,7 @@ ul {
 ul li {
   display: inline-block;
   padding: 28px 24px;
+  position: relative;
 }
 
 ul li:hover {
@@ -42,13 +30,11 @@ ul li:hover > a {
   color: #ec008c;
 }
 
-ul li:hover > ul {
-  display: block;
-}
-
 ul ul {
   position: absolute;
   display: none;
+  left: 0;
+  top: 100%;
 }
 
 ul ul li {
@@ -56,6 +42,7 @@ ul ul li {
   color: black;
   background-color: white;
   padding: 12px 24px;
+  white-space: nowrap;
 }
 
 ul ul li:hover {
@@ -67,13 +54,11 @@ nav {
   display: inline-block;
   font-family: HUGEAvantGardeBold;
   letter-spacing: -0.06em;
-  vertical-align: middle;
 }
 
 nav a {
   text-decoration: none;
   color: white;
-  display: inline-block;
 }
 
 .clearfix:before,
@@ -91,6 +76,13 @@ nav a {
 .clearfix {
   *zoom: 1;
 }
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
 
 /* ==========================================================================
    Custom styles
@@ -99,6 +91,7 @@ nav a {
 .masthead {
   background-color: #ec008c;
   height: 72px;
+  width: 100%;
 }
 
 .masthead img {
@@ -110,14 +103,9 @@ nav a {
   padding: 24px 24px;
 }
 
-.nested-list {
-  margin: 1.75em -1.55em;
-}
-
 .nested-list a {
   font-family: Galaxie;
   font-size: 12px;
-  width: 100%;
   color: black;
 }
 
@@ -125,8 +113,21 @@ nav a {
   position: relative;
 }
 
+.hero h1 {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: HUGEAvantGardeBold;
+  font-size: 90px;
+  text-align: center;
+}
+
 .hero-img {
-  height: 640px;
+  width: 100%;
 }
 
 .copy {
@@ -135,4 +136,52 @@ nav a {
   width: 968px;
   margin: 0 auto;
   padding: 60px 0;
+}
+
+.copy h1 {
+  display: none;
+}
+
+/* ==========================================================================
+   Media queries
+   ========================================================================== */
+
+@media (max-width:767px) {
+  .hamburger {
+    display: block;
+    float: left;
+  }
+
+  .header-logo {
+    display: none;
+  }
+
+  .hero h1 {
+    display: none;
+  }
+
+  .hero-img {
+    height: 240px;
+  }
+
+  .copy {
+    width: 100%;
+    font-size: 16px;
+    padding: 0 24px;
+    -webkit-box-sizing: border-box;
+  }
+
+  .group h1 {
+    display: block;
+    padding: 50px 0;
+    color: black;
+    font-size: 40px;
+    position: relative;
+    text-align: left;
+    font-family: HUGEAvantGardeBold;
+  }
+
+  .group {
+    text-align: justify;
+  }
 }
