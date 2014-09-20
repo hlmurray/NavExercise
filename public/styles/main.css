@@ -1,8 +1,11 @@
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+
 @import "fonts.css";
 
 body {
-  background: #ec008c;
-  color: #fff;
+  margin: 0;
 }
 
 h1 {
@@ -15,4 +18,62 @@ h1 {
   font: 20vmin/1 HUGEAvantGardeBold;
   letter-spacing: -0.06em;
   text-align: center;
+}
+
+nav {
+  display: inline-block;
+  font-family: HUGEAvantGardeBold;
+  letter-spacing: -0.06em;
+  vertical-align: middle;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  padding: 24px;
+
+}
+
+nav a:hover {
+  background-color: white;
+  color: #ec008c;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+/* ==========================================================================
+   Custom styles
+   ========================================================================== */
+
+.masthead {
+  background-color: #ec008c;
+  height: 72px;
+}
+
+.masthead img {
+  vertical-align: middle;
+}
+
+.header-logo {
+  width: 60px;
+  padding: 24px 24px;
+}
+
+.hero-img {
+  height: 640px;
 }
