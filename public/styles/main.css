@@ -22,13 +22,45 @@ h1 {
 }
 
 ul {
-  list-style-type: none;
-  margin: 0;
+  list-style: none;
   padding: 0;
+  margin: 0;
+  z-index: 10;
+  color: white;
 }
 
-li {
-  display: inline;
+ul li {
+  display: inline-block;
+  padding: 28px 24px;
+}
+
+ul li:hover {
+  background-color: white;
+}
+
+ul li:hover > a {
+  color: #ec008c;
+}
+
+ul li:hover > ul {
+  display: block;
+}
+
+ul ul {
+  position: absolute;
+  display: none;
+}
+
+ul ul li {
+  display: block;
+  color: black;
+  background-color: white;
+  padding: 12px 24px;
+}
+
+ul ul li:hover {
+  color: #ec008c;
+  background-color: #eee;
 }
 
 nav {
@@ -42,13 +74,6 @@ nav a {
   text-decoration: none;
   color: white;
   display: inline-block;
-  padding: 28px 24px;
-
-}
-
-nav a:hover {
-  background-color: white;
-  color: #ec008c;
 }
 
 .clearfix:before,
@@ -83,6 +108,17 @@ nav a:hover {
 .header-logo {
   width: 60px;
   padding: 24px 24px;
+}
+
+.nested-list {
+  margin: 1.75em -1.55em;
+}
+
+.nested-list a {
+  font-family: Galaxie;
+  font-size: 12px;
+  width: 100%;
+  color: black;
 }
 
 .hero {
