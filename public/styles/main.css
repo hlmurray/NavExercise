@@ -9,15 +9,26 @@ body {
 }
 
 h1 {
+  color: white;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   margin: 0;
-  font: 20vmin/1 HUGEAvantGardeBold;
-  letter-spacing: -0.06em;
+  font-family: HUGEAvantGardeBold;
+  font-size: 90px;
   text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
 }
 
 nav {
@@ -31,7 +42,7 @@ nav a {
   text-decoration: none;
   color: white;
   display: inline-block;
-  padding: 24px;
+  padding: 28px 24px;
 
 }
 
@@ -74,6 +85,18 @@ nav a:hover {
   padding: 24px 24px;
 }
 
+.hero {
+  position: relative;
+}
+
 .hero-img {
   height: 640px;
+}
+
+.copy {
+  font-family: Galaxie;
+  font-size: 20px;
+  width: 968px;
+  margin: 0 auto;
+  padding: 60px 0;
 }
