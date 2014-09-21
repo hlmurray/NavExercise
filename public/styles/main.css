@@ -147,9 +147,44 @@ nav a {
    ========================================================================== */
 
 @media (max-width:767px) {
+  ul {
+    background-color: white;
+    position: absolute;
+    width: 75%;
+    top: 60px;
+    left: 0;
+    display: none;
+  }
+
+  ul li {
+    display: list-item;
+    padding: 12px 24px;
+  }
+
+  ul li:hover {
+    background-color: #eee;
+  }
+
+  ul li:hover > a {
+    color: black;
+  }
+
+  nav a {
+    color: black;
+  }
+
+  .close {
+    float: right;
+  }
+
+  .masthead {
+    height: 60px;
+  }
+
   .hamburger {
     display: block;
     float: left;
+    height: 60px;
   }
 
   .header-logo {
@@ -179,6 +214,7 @@ nav a {
     position: relative;
     text-align: left;
     font-family: HUGEAvantGardeBold;
+    margin: 0;
   }
 
   .group {

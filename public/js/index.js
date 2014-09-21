@@ -8,6 +8,7 @@
     }); */
 
 var listItems = document.getElementsByTagName('li');
+
 for(var j=0; j<listItems.length; j++) {
 	listItems[j].addEventListener('click', Toggle);
 }
