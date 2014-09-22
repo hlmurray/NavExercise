@@ -71,9 +71,9 @@ function addClickHandlers(){
 		var openNavigation = document.querySelectorAll('.nestedlist');
 		for(var i=0; i<openNavigation.length; i++) {
 			openNavigation[i].classList.remove('nestedlist');
-			mask.classList.remove('show-mask');
-			siteWrapper.classList.remove('show-nav');
 		}
+		mask.classList.remove('show-mask');
+		siteWrapper.classList.remove('show-nav');
 	});
 }
 
