@@ -137,6 +137,10 @@ nav a {
   color: black;
 }
 
+.copyright {
+  display: none;
+}
+
 /* ==========================================================================
    Main Section
    ========================================================================== */
@@ -233,6 +237,7 @@ nav a {
 
   nav a {
     color: black;
+    font-size: 17px;
   }
 
   /* ==========================================================================
@@ -270,6 +275,10 @@ nav a {
   .nestedlist .secondary {
     -webkit-transform: translateX(-24px);
             transform: translateX(-24px);
+  }
+
+  .secondary a {
+    font-size: 13px;
   }
 
   .chevron.nestedlist::after {
@@ -356,9 +365,9 @@ nav a {
     font-family: Helvetica;
     font-size: 10px;
     display: block;
-    bottom: 5%;
+    bottom: 0;
     left: 0;
-    position: absolute;
+    position: relative;
     z-index: 11;
     padding: 0 24px;
     letter-spacing: .08px;

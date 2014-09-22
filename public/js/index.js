@@ -14,6 +14,10 @@ function getMenuItemsFromApi() {
 			var navigation = createNestedList(d);
 			
 			// append to DOM
+			var p = document.createElement("p");
+			p.classList.add('copyright');
+			p.innerHTML = "&copy; 2014 Huge. All Rights Reserved.";
+			navigation.appendChild(p);
 			var primary = document.getElementsByClassName('primary')[0];
 			primary.appendChild(navigation);
 
@@ -48,7 +52,7 @@ function createNestedList(d){
 					newListItem.classList.add('chevron');
 				}
 			}
-		}	
+		}
 		navigation.appendChild(newListItem);
 	}
 	return navigation;
@@ -57,12 +61,12 @@ function createNestedList(d){
 function addClickHandlers(){
 	var nestedNavs = document.querySelectorAll('.secondary');
 	for(var j=0; j<nestedNavs.length; j++) {
-		nestedNavs[j].parentNode.addEventListener('click', toggleNavElements);	
+		nestedNavs[j].parentNode.addEventListener('click', toggleNavElements);
 	}
 	// click outside menu to close secondary nav
 	var mask = document.querySelectorAll('.mask')[0],
 		siteWrapper = document.querySelectorAll('.site-wrapper')[0];
-		
+
 	mask.addEventListener('click', function () {
 		var openNavigation = document.querySelectorAll('.nestedlist');
 		for(var i=0, itemsLength = openNavigation.length; i<itemsLength; i++) {
@@ -74,10 +78,16 @@ function addClickHandlers(){
 }
 
 function toggleNavElements(e) {
-	var mask = document.querySelectorAll('.mask')[0];
+	var mask = document.querySelectorAll('.mask')[0],
+		chevronNavs = document.querySelectorAll('.chevron');
+	for(var i=0; i<chevronNavs.length; i++) {
+		if(chevronNavs[i].classList.contains('nestedlist')) {
+			chevronNavs[i].classList.remove('nestedlist');
+		}
+	}
 	this.classList.toggle('nestedlist');
 	e.stopPropagation();
-	if (mask.classList.contains('show-mask')) {
+	if (mask.classList.contains('show-mask')) { // add/remove mask for desktop
 		mask.classList.remove('show-mask');
 	} else {
 		mask.classList.add('show-mask');
@@ -86,7 +96,7 @@ function toggleNavElements(e) {
 
 function toggleMobileNav() {
 	var siteWrapper = document.querySelectorAll('.site-wrapper')[0];
-    if (siteWrapper.classList.contains('show-nav')) {
+    if (siteWrapper.classList.contains('show-nav')) {  // add/remove nav and mask for mobile
         // hide mobile nav
         siteWrapper.classList.remove('show-nav');
     } else {
