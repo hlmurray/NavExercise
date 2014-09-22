@@ -93,6 +93,10 @@ nav a {
    Custom styles
    ========================================================================== */
 
+/* ==========================================================================
+   Header/Navigation
+   ========================================================================== */
+
 .masthead {
   background-color: #ec008c;
   height: 72px;
@@ -133,23 +137,6 @@ nav a {
   color: black;
 }
 
-.mask {
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0; 
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  -webkit-transition: opacity 0.25s ease; 
-  transition: opacity 0.25s ease; 
-  z-index: 1;
-}
-
-.show-mask {
-  opacity: 1;
-}
-
 .chevron::after {
   content: "\003e";
   display: none;
@@ -161,6 +148,27 @@ nav a {
   z-index: 10;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   Main Section
+   ========================================================================== */
+
+.mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0; 
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: opacity 0.25s ease; 
+          transition: opacity 0.25s ease; 
+  z-index: 1;
+}
+
+.show-mask {
+  opacity: 1;
 }
 
 .hero {
@@ -202,6 +210,10 @@ nav a {
    ========================================================================== */
 
 @media (max-width:767px) {
+  /* ==========================================================================
+   Base styles
+   ========================================================================== */
+
   ul {
     background-color: white;
     position: absolute;
@@ -236,6 +248,34 @@ nav a {
     color: black;
   }
 
+  /* ==========================================================================
+   Custom styles
+   ========================================================================== */
+
+
+  /* ==========================================================================
+   Header/Navigation
+   ========================================================================== */
+
+  .masthead {
+    height: 60px;
+  }
+
+  .hamburger {
+    display: block;
+    height: 60px;
+  }
+
+  .header-mobile {
+    width: 50px;
+    padding: 1.25em 1.5em;
+    display: block;
+  }
+
+  .header-logo {
+    display: none;
+  }
+
   .nestedlist a {
     color: black;
   }
@@ -254,10 +294,33 @@ nav a {
     display: block;
   }
 
+  /* Mobile Slide Navigation Styles */
+
   .site-wrapper {
     position: relative;
     overflow: hidden;
     width: 100%;
+  }
+
+  .site-canvas {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-transition: .3s ease all;
+            transition: .3s ease all;
+  }
+
+  .site-menu {
+    width: 85%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -85%;
+    background: #ec008c;
+    overflow-y: scroll;
+    -webkit-box-sizing: border-box;
   }
 
   .site-wrapper.show-nav .site-canvas {
@@ -278,29 +341,16 @@ nav a {
     height: 60px;
   }
 
-  .site-canvas {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    -webkit-transition: .3s ease all;
-    transition: .3s ease all;
+  /* ==========================================================================
+   Main Section
+   ========================================================================== */
+
+  .hero h1 {
+    display: none;
   }
 
-  .site-menu {
-    width: 85%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: -85%;
-    background: #ec008c;
-    overflow-y: scroll;
-    -webkit-box-sizing: border-box;
-  }
-
-  .masthead {
-    height: 60px;
+  .hero-img {
+    height: 240px;
   }
 
   .copyright {
@@ -315,34 +365,15 @@ nav a {
     padding: 0 24px;
   }
 
-  .hamburger {
-    display: block;
-    height: 60px;
-  }
-
-  .header-mobile {
-    width: 50px;
-    padding: 1.25em 1.5em;
-    display: block;
-  }
-
-  .header-logo {
-    display: none;
-  }
-
-  .hero h1 {
-    display: none;
-  }
-
-  .hero-img {
-    height: 240px;
-  }
-
   .copy {
     width: 100%;
     font-size: 16px;
     padding: 0 24px;
     -webkit-box-sizing: border-box;
+  }
+
+  .group {
+    text-align: justify;
   }
 
   .group h1 {
@@ -354,9 +385,5 @@ nav a {
     text-align: left;
     font-family: HUGEAvantGardeBold;
     margin: 0;
-  }
-
-  .group {
-    text-align: justify;
   }
 }
