@@ -392,10 +392,16 @@ nav a {
     display: block;
     padding: 50px 0;
     color: black;
-    font-size: 40px;
+    font-size: 36px;
     position: relative;
     text-align: left;
     font-family: HUGEAvantGardeBold;
     margin: 0;
+  }
+
+  .group p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 20px;
   }
 }
