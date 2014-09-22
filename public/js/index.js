@@ -69,11 +69,11 @@ function addClickHandlers(){
 
 	mask.addEventListener('click', function () {
 		var openNavigation = document.querySelectorAll('.nestedlist');
-		for(var i=0, itemsLength = openNavigation.length; i<itemsLength; i++) {
+		for(var i=0; i<openNavigation.length; i++) {
 			openNavigation[i].classList.remove('nestedlist');
+			mask.classList.remove('show-mask');
+			siteWrapper.classList.remove('show-nav');
 		}
-		mask.classList.remove('show-mask');
-		siteWrapper.classList.remove('show-nav');
 	});
 }
 
@@ -83,11 +83,14 @@ function toggleNavElements(e) {
 	for(var i=0; i<chevronNavs.length; i++) {
 		if(chevronNavs[i].classList.contains('nestedlist')) {
 			chevronNavs[i].classList.remove('nestedlist');
+		} else if(chevronNavs[i] === this) {
+			this.classList.remove('nestedlist');
+		} else {
+			this.classList.add('nestedlist');
 		}
 	}
-	this.classList.toggle('nestedlist');
 	e.stopPropagation();
-	if (mask.classList.contains('show-mask')) { // add/remove mask for desktop
+	if (mask.classList.contains('show-mask') && !this.classList.contains('nestedlist')) { // add/remove mask for desktop
 		mask.classList.remove('show-mask');
 	} else {
 		mask.classList.add('show-mask');
