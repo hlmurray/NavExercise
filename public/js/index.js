@@ -32,7 +32,7 @@ function createNestedList(d){
 				if(nestedList) {
 					ul.appendChild(nestedList);
 					newListItem.appendChild(ul);
-					//newListItem.classList.add('chevron');
+					newListItem.classList.add('chevron');
 				}
 			}
 		}	
@@ -66,8 +66,8 @@ function toggleNavElements(e) {
 		$('.mask').addClass('show-mask');
 	}
 }
-//functions to handle nav display in mobile view
 
+//functions to handle nav display in mobile view
 $(function() {
 	getMenuItemsFromApi();
     $('.toggle-nav').click(function() {

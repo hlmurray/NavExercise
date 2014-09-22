@@ -110,7 +110,8 @@ nav a {
   padding: 24px 24px;
 }
 
-.nestedlist {
+.nestedlist,
+.nestedlist:hover {
   background: white;
 }
 
@@ -150,13 +151,16 @@ nav a {
 }
 
 .chevron::after {
-  content: "^";
+  content: "\003e";
+  display: none;
   position: absolute;
   right: 3%;
   color: #ec008c;
   font-size: 2em;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
+  top: 5px;
+  z-index: 10;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 .hero {
@@ -169,7 +173,7 @@ nav a {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   margin: 0;
   font-family: HUGEAvantGardeBold;
   font-size: 90px;
@@ -225,11 +229,34 @@ nav a {
   }
 
   ul ul li {
-    padding: 12px 0;
+    width: inherit;
   }
 
   nav a {
     color: black;
+  }
+
+  .nestedlist {
+    -webkit-transition: transform 1s ease;
+            transition: transform 1s ease;
+  }
+
+  .nestedlist a {
+    color: black;
+  }
+
+  .nestedlist .secondary {
+    -webkit-transform: translateX(-24px);
+            transform: translateX(-24px);
+  }
+
+  .chevron.nestedlist::after {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+
+  .chevron::after {
+    display: block;
   }
 
   .site-wrapper {
@@ -240,7 +267,7 @@ nav a {
 
   .site-wrapper.show-nav .site-canvas {
     -webkit-transform: translateX(85%);
-    transform: translateX(85%);
+            transform: translateX(85%);
   }
 
   .show-nav .mask {
@@ -286,7 +313,7 @@ nav a {
     font-family: Helvetica;
     font-size: 12px;
     display: block;
-    bottom: 0%;
+    bottom: 0;
     left: 0;
     position: absolute;
     z-index: 11;
