@@ -182,6 +182,7 @@ nav a {
 
 .hero-img {
   width: 100%;
+  max-width: 100%;
 }
 
 .copy {
@@ -282,23 +283,25 @@ nav a {
   }
 
   .chevron.nestedlist::after {
-    -webkit-transform: rotate(270deg);
-            transform: rotate(270deg);
-    top: 8px;
-    right: 2.5%;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+    top: 9px;
   }
 
   .chevron::after {
-    content: "\276f";
-    display: block;
+    border-style: solid;
+    border-width: 0.2em 0.2em 0 0;
+    content: '';
+    display: inline-block;
+    height: 0.5em;
+    right: 5%;
     position: absolute;
-    right: 3%;
+    top: 15px;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    vertical-align: top;
+    width: 0.5em;
     color: #ec008c;
-    font-size: 1.5em;
-    top: 8px;
-    z-index: 10;
-    -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
   }
 
   /* Slide Navigation Styles */
@@ -354,10 +357,6 @@ nav a {
 
   .hero h1 {
     display: none;
-  }
-
-  .hero-img {
-    height: 240px;
   }
 
   .copyright {
