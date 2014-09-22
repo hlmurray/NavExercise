@@ -1,5 +1,4 @@
 'use strict';
-
 $(function() {
 	getMenuItemsFromApi();
     $('.toggle-nav').click(function() {
