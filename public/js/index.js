@@ -1,11 +1,17 @@
+'use strict';
+
 function getMenuItemsFromApi() {
-	$.ajax("/api/nav.json", {
+	return $.ajax("/api/nav.json", {
 		success: function(d) {
+			// parse data and create elements
 			var navigation = createNestedList(d);
+			
 			// append to DOM
 			var primary = document.getElementsByClassName('primary')[0];
 			primary.appendChild(navigation);
-			addEventListeners();
+
+			// add click handlers
+			addClickHandlers();
 		}
 	});
 }
@@ -41,19 +47,20 @@ function createNestedList(d){
 	return navigation;
 }
 
-function addEventListeners(){
+function addClickHandlers(){
 	var nestedNavs = document.querySelectorAll('.secondary');
 	for(var j=0; j<nestedNavs.length; j++) {
 		nestedNavs[j].parentNode.addEventListener('click', toggleNavElements);	
 	}
 	// click anywhere to close secondary nav
-	document.addEventListener('click', function () {
+	var mask = document.querySelectorAll('.mask')[0];
+	mask.addEventListener('click', function () {
 		var openNavigation = document.querySelectorAll('.nestedlist');
-		console.log(openNavigation);
 		for(var i=0, itemsLength = openNavigation.length; i<itemsLength; i++) {
 			openNavigation[i].classList.remove('nestedlist');
-			$('.mask').removeClass('show-mask');
 		}
+		$('.mask').removeClass('show-mask');
+		$('.site-wrapper').removeClass('show-nav');
 	});
 }
 

@@ -236,11 +236,6 @@ nav a {
     color: black;
   }
 
-  .nestedlist {
-    -webkit-transition: transform 1s ease;
-            transition: transform 1s ease;
-  }
-
   .nestedlist a {
     color: black;
   }
