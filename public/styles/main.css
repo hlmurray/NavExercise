@@ -275,18 +275,18 @@ nav a {
   .chevron.nestedlist::after {
     -webkit-transform: rotate(270deg);
             transform: rotate(270deg);
-    top: -10px;
-    right: 1.5%;
+    top: 8px;
+    right: 2.5%;
   }
 
   .chevron::after {
-    content: "\232A";
+    content: "\276f";
     display: block;
     position: absolute;
     right: 3%;
     color: #ec008c;
-    font-size: 2em;
-    top: 10px;
+    font-size: 1.5em;
+    top: 8px;
     z-index: 10;
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);

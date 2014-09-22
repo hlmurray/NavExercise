@@ -62,6 +62,7 @@ function addClickHandlers(){
 	// click outside menu to close secondary nav
 	var mask = document.querySelectorAll('.mask')[0],
 		siteWrapper = document.querySelectorAll('.site-wrapper')[0];
+		
 	mask.addEventListener('click', function () {
 		var openNavigation = document.querySelectorAll('.nestedlist');
 		for(var i=0, itemsLength = openNavigation.length; i<itemsLength; i++) {
