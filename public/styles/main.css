@@ -266,18 +266,14 @@ nav a {
     transition: .3s ease all;
   }
 
-  .mask {
-    top: 60px;
-  }
-
   .site-menu {
     width: 85%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: -85%;
     background: #ec008c;
-    overflow: scroll;
+    overflow-y: scroll;
     -webkit-box-sizing: border-box;
   }
 

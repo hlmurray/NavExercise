@@ -44,32 +44,39 @@ function createNestedList(d){
 function addEventListeners(){
 	var nestedNavs = document.querySelectorAll('.secondary');
 	for(var j=0; j<nestedNavs.length; j++) {
-		nestedNavs[j].parentNode.addEventListener('click', ToggleNavElements);
-			
+		nestedNavs[j].parentNode.addEventListener('click', toggleNavElements);	
 	}
+	// click anywhere to close secondary nav
+	document.addEventListener('click', function () {
+		var openNavigation = document.querySelectorAll('.nestedlist');
+		console.log(openNavigation);
+		for(var i=0, itemsLength = openNavigation.length; i<itemsLength; i++) {
+			openNavigation[i].classList.remove('nestedlist');
+			$('.mask').removeClass('show-mask');
+		}
+	});
 }
 
-function ToggleNavElements() {
+function toggleNavElements(e) {
 	this.classList.toggle('nestedlist');
+	e.stopPropagation();
 	if ($('.mask').hasClass('show-mask')) {
 		$('.mask').removeClass('show-mask');
 	} else {
 		$('.mask').addClass('show-mask');
 	}
 }
-
 //functions to handle nav display in mobile view
 
 $(function() {
 	getMenuItemsFromApi();
-	
     $('.toggle-nav').click(function() {
         // Calling a function in case you want to expand upon this.
-        toggleNav();
+        toggleMobileNav();
     });
 });
 
-function toggleNav() {
+function toggleMobileNav() {
     if ($('.site-wrapper').hasClass('show-nav')) {
         // Do things on Nav Close
         $('.site-wrapper').removeClass('show-nav');
