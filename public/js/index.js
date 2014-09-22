@@ -1,4 +1,5 @@
 'use strict';
+
 $(function() {
 	getMenuItemsFromApi();
     $('.toggle-nav').click(function() {
@@ -80,19 +81,22 @@ function addClickHandlers(){
 function toggleNavElements(e) {
 	var mask = document.querySelectorAll('.mask')[0],
 		chevronNavs = document.querySelectorAll('.chevron');
-
+	// remove secondary nav if primary is clicked again
 	if(this.classList.contains('nestedlist')) {
 		this.classList.remove('nestedlist');
 	} else {
 		for(var i=0; i<chevronNavs.length; i++) {
+			// remove other secondary navs on other primary click
 			if(chevronNavs[i].classList.contains('nestedlist')) {
 				chevronNavs[i].classList.remove('nestedlist');
 			}
+			// add secondary nav below clicked primary
 			this.classList.add('nestedlist');
 		}
 	}
 	e.stopPropagation();
-	if (mask.classList.contains('show-mask') && !this.classList.contains('nestedlist')) { // add/remove mask for desktop
+	// add/remove mask for desktop
+	if (mask.classList.contains('show-mask') && !this.classList.contains('nestedlist')) {
 		mask.classList.remove('show-mask');
 	} else {
 		mask.classList.add('show-mask');
@@ -101,7 +105,8 @@ function toggleNavElements(e) {
 
 function toggleMobileNav() {
 	var siteWrapper = document.querySelectorAll('.site-wrapper')[0];
-    if (siteWrapper.classList.contains('show-nav')) {  // add/remove nav and mask for mobile
+	// add/remove nav and mask for mobile
+    if (siteWrapper.classList.contains('show-nav')) {
         // hide mobile nav
         siteWrapper.classList.remove('show-nav');
     } else {
