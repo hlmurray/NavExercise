@@ -80,12 +80,17 @@ function addClickHandlers(){
 function toggleNavElements(e) {
 	var mask = document.querySelectorAll('.mask')[0],
 		chevronNavs = document.querySelectorAll('.chevron');
-	for(var i=0; i<chevronNavs.length; i++) {
-		if(chevronNavs[i].classList.contains('nestedlist')) {
-			chevronNavs[i].classList.remove('nestedlist');
+
+	if(this.classList.contains('nestedlist')) {
+		this.classList.remove('nestedlist');
+	} else {
+		for(var i=0; i<chevronNavs.length; i++) {
+			if(chevronNavs[i].classList.contains('nestedlist')) {
+				chevronNavs[i].classList.remove('nestedlist');
+			}
+			this.classList.add('nestedlist');
 		}
 	}
-	this.classList.add('nestedlist');
 	e.stopPropagation();
 	if (mask.classList.contains('show-mask') && !this.classList.contains('nestedlist')) { // add/remove mask for desktop
 		mask.classList.remove('show-mask');
