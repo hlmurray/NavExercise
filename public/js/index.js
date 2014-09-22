@@ -1,5 +1,13 @@
 'use strict';
 
+$(function() {
+	getMenuItemsFromApi();
+    $('.toggle-nav').click(function() {
+        // on click of hamburger/close button, show/hide mobile nav
+        toggleMobileNav();
+    });
+});
+
 function getMenuItemsFromApi() {
 	return $.ajax("/api/nav.json", {
 		success: function(d) {
@@ -52,43 +60,37 @@ function addClickHandlers(){
 	for(var j=0; j<nestedNavs.length; j++) {
 		nestedNavs[j].parentNode.addEventListener('click', toggleNavElements);	
 	}
-	// click anywhere to close secondary nav
-	var mask = document.querySelectorAll('.mask')[0];
+	// click outside menu to close secondary nav
+	var mask = document.querySelectorAll('.mask')[0],
+		siteWrapper = document.querySelectorAll('.site-wrapper')[0];
 	mask.addEventListener('click', function () {
 		var openNavigation = document.querySelectorAll('.nestedlist');
 		for(var i=0, itemsLength = openNavigation.length; i<itemsLength; i++) {
 			openNavigation[i].classList.remove('nestedlist');
 		}
-		$('.mask').removeClass('show-mask');
-		$('.site-wrapper').removeClass('show-nav');
+		mask.classList.remove('show-mask');
+		siteWrapper.classList.remove('show-nav');
 	});
 }
 
 function toggleNavElements(e) {
+	var mask = document.querySelectorAll('.mask')[0];
 	this.classList.toggle('nestedlist');
 	e.stopPropagation();
-	if ($('.mask').hasClass('show-mask')) {
-		$('.mask').removeClass('show-mask');
+	if (mask.classList.contains('show-mask')) {
+		mask.classList.remove('show-mask');
 	} else {
-		$('.mask').addClass('show-mask');
+		mask.classList.add('show-mask');
 	}
 }
 
-//functions to handle nav display in mobile view
-$(function() {
-	getMenuItemsFromApi();
-    $('.toggle-nav').click(function() {
-        // Calling a function in case you want to expand upon this.
-        toggleMobileNav();
-    });
-});
-
 function toggleMobileNav() {
-    if ($('.site-wrapper').hasClass('show-nav')) {
-        // Do things on Nav Close
-        $('.site-wrapper').removeClass('show-nav');
+	var siteWrapper = document.querySelectorAll('.site-wrapper')[0];
+    if (siteWrapper.classList.contains('show-nav')) {
+        // hide mobile nav
+        siteWrapper.classList.remove('show-nav');
     } else {
-        // Do things on Nav Open
-        $('.site-wrapper').addClass('show-nav');
+        // show mobile nav
+        siteWrapper.classList.add('show-nav');
     }
 }
