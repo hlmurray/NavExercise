@@ -83,12 +83,9 @@ function toggleNavElements(e) {
 	for(var i=0; i<chevronNavs.length; i++) {
 		if(chevronNavs[i].classList.contains('nestedlist')) {
 			chevronNavs[i].classList.remove('nestedlist');
-		} else if(chevronNavs[i] === this) {
-			this.classList.remove('nestedlist');
-		} else {
-			this.classList.add('nestedlist');
 		}
 	}
+	this.classList.add('nestedlist');
 	e.stopPropagation();
 	if (mask.classList.contains('show-mask') && !this.classList.contains('nestedlist')) { // add/remove mask for desktop
 		mask.classList.remove('show-mask');
