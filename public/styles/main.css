@@ -33,22 +33,25 @@ ul li:hover > a {
 
 ul ul {
   position: absolute;
-  display: none;
   left: 0;
   top: 100%;
+  display: none;
 }
 
 ul ul li {
   display: block;
   color: black;
   background-color: white;
-  padding: 12px 24px;
   white-space: nowrap;
+  padding: 12px 24px;
 }
 
 ul ul li:hover {
-  color: #ec008c;
   background-color: #eee;
+}
+
+ul ul li:hover a{
+  color: #ec008c;
 }
 
 nav {
@@ -94,6 +97,8 @@ nav a {
   background-color: #ec008c;
   height: 72px;
   width: 100%;
+  position: relative;
+  z-index: 12;
 }
 
 .masthead img {
@@ -105,28 +110,53 @@ nav a {
   padding: 24px 24px;
 }
 
-.nested-list a {
+.nestedlist {
+  background: white;
+}
+
+.nestedlist a {
+  color: #ec008c;
+}
+
+.nestedlist .secondary {
+  display: block;
+}
+
+.secondary {
+  display: none;
+}
+
+.secondary a {
   font-family: Galaxie;
   font-size: 12px;
   color: black;
 }
 
-.site-wrapper {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
-
 .mask {
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0; 
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
-  top: 60px;
+  top: 0;
   bottom: 0;
   -webkit-transition: opacity 0.25s ease; 
   transition: opacity 0.25s ease; 
+  z-index: 1;
+}
+
+.show-mask {
+  opacity: 1;
+}
+
+.chevron::after {
+  content: "^";
+  position: absolute;
+  right: 3%;
+  color: #ec008c;
+  font-size: 2em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
 }
 
 .hero {
@@ -144,6 +174,7 @@ nav a {
   font-family: HUGEAvantGardeBold;
   font-size: 90px;
   text-align: center;
+  z-index: 0;
 }
 
 .hero-img {
@@ -189,8 +220,22 @@ nav a {
     color: black;
   }
 
+  ul ul {
+    position: relative;
+  }
+
+  ul ul li {
+    padding: 12px 0;
+  }
+
   nav a {
     color: black;
+  }
+
+  .site-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
   }
 
   .site-wrapper.show-nav .site-canvas {
@@ -221,6 +266,10 @@ nav a {
     transition: .3s ease all;
   }
 
+  .mask {
+    top: 60px;
+  }
+
   .site-menu {
     width: 85%;
     height: 100%;
@@ -228,6 +277,7 @@ nav a {
     top: 0;
     left: -85%;
     background: #ec008c;
+    overflow: scroll;
     -webkit-box-sizing: border-box;
   }
 
