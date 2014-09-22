@@ -80,10 +80,12 @@ function addClickHandlers(){
 
 function toggleNavElements(e) {
 	var mask = document.querySelectorAll('.mask')[0],
-		chevronNavs = document.querySelectorAll('.chevron');
+		chevronNavs = document.querySelectorAll('.chevron'),
+		copyright = document.querySelectorAll('.copyright')[0];
 	// remove secondary nav if primary is clicked again
 	if(this.classList.contains('nestedlist')) {
 		this.classList.remove('nestedlist');
+		copyright.classList.remove('relative');
 	} else {
 		for(var i=0; i<chevronNavs.length; i++) {
 			// remove other secondary navs on other primary click
@@ -92,6 +94,7 @@ function toggleNavElements(e) {
 			}
 			// add secondary nav below clicked primary
 			this.classList.add('nestedlist');
+			copyright.classList.add('relative');
 		}
 	}
 	e.stopPropagation();

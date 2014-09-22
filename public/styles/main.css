@@ -224,6 +224,7 @@ nav a {
   ul li {
     display: list-item;
     padding: 12px 24px;
+    background-color: white;
   }
 
   ul li:hover {
@@ -366,15 +367,22 @@ nav a {
 
   .copyright {
     color: black;
+    background-color: white;
     font-family: Helvetica;
     font-size: 10px;
     display: block;
-    bottom: 0;
+    bottom: 15%;
     left: 0;
-    position: relative;
+    position: absolute;
     z-index: 11;
     padding: 0 24px;
     letter-spacing: .08px;
+    margin: 0;
+  }
+
+  .relative {
+    position: relative;
+    bottom: 0;
   }
 
   .copy {
